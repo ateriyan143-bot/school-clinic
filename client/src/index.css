@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-gray-800;
+    background-image: radial-gradient(circle at 10% 10%, rgba(22, 163, 74, 0.08), transparent 35%),
+      radial-gradient(circle at 85% 5%, rgba(250, 204, 21, 0.12), transparent 30%);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply font-semibold px-4 py-2 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md;
+    background-color: #15803d;
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background-color: #166534;
+  }
+
+  .btn-accent {
+    @apply font-semibold px-4 py-2 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md;
+    background-color: #facc15;
+    color: #111827;
+  }
+  .btn-accent:hover {
+    background-color: #eab308;
+  }
+
+  .btn-secondary {
+    @apply font-medium px-4 py-2 rounded-lg transition-all duration-200;
+    background-color: #fff7c2;
+    color: #713f12;
+    border: 1px solid #ffeb86;
+  }
+  .btn-secondary:hover {
+    background-color: #ffeb86;
+  }
+
+  .card {
+    @apply rounded-xl shadow-sm p-6 transition-all duration-200 hover:shadow-lg;
+    background-color: rgba(255,255,255,0.95);
+    backdrop-filter: blur(4px);
+    border: 1px solid #d1fae3;
+  }
+  .card:hover {
+    border-color: #a7f3c7;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-lg bg-white transition-all duration-150;
+    border: 1px solid #a7f3c7;
+  }
+  .input-field:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #fddc4b;
+    border-color: #34d27f;
+  }
+
+  .label {
+    @apply block text-sm font-semibold mb-2;
+    color: #14532d;
+  }
+}
