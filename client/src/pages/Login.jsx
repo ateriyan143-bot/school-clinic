@@ -25,7 +25,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Panel - Branding */}
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-100 via-white to-accent-100 items-center justify-center p-12">
         <div className="text-center">
@@ -53,9 +53,25 @@ export default function Login() {
       </div>
 
       {/* Right Panel - Login Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-white/90 backdrop-blur-sm">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-8 bg-white/90 backdrop-blur-sm">
         <div className="w-full max-w-md">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Login</h2>
+          {/* Mobile Header */}
+          <div className="lg:hidden text-center mb-8">
+            <div className="flex justify-center mb-4">
+              <img
+                src="/assets/lucsuhin.png"
+                alt="Lucsuhin Integrated School Logo"
+                className="w-24 h-24 object-contain"
+              />
+            </div>
+            <h1 className="text-2xl font-bold text-gray-800 mb-2">
+              School Clinic Management System
+            </h1>
+            <p className="text-sm text-gray-600">
+              Nurse & Admin Access Portal
+            </p>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">Login</h2>
           
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (

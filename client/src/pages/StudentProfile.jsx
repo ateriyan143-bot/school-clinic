@@ -285,11 +285,11 @@ export default function StudentProfile() {
     <div className="flex h-screen bg-gray-50">
       <Sidebar />
       
-      <div className="flex-1 overflow-auto">
-        <div className="p-8">
+      <div className="flex-1 overflow-auto pl-0 lg:pl-0">
+        <div className="p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8">
           <button
             onClick={() => navigate('/dashboard')}
-            className="flex items-center gap-2 text-primary-700 hover:text-primary-900 mb-6 transition-colors"
+            className="flex items-center gap-2 text-primary-700 hover:text-primary-900 mb-4 sm:mb-6 transition-colors text-sm sm:text-base"
           >
             <ArrowLeft size={20} />
             Back to Dashboard
@@ -297,17 +297,16 @@ export default function StudentProfile() {
 
           {/* Student Header */}
           <div className="card mb-6">
-            <div className="flex items-start">
-              <div className="flex gap-6">
-                <div className="w-32 h-32 bg-gray-200 rounded-lg flex items-center justify-center">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gray-200 rounded-lg flex items-center justify-center shrink-0">
                   {((isEditingStudent ? editForm.profile_image_url : student.profile_image_url)) ? (
                     <img
                       src={isEditingStudent ? editForm.profile_image_url : student.profile_image_url}
                       alt={student.full_name}
-                      className="w-32 h-32 rounded-lg object-cover"
+                      className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover"
                     />
                   ) : (
-                    <span className="text-4xl">👤</span>
+                    <span className="text-3xl sm:text-4xl">👤</span>
                   )}
                 </div>
                 <div>
@@ -458,7 +457,6 @@ export default function StudentProfile() {
                     )}
                   </div>
                 </div>
-              </div>
             </div>
 
             {studentSaveError && (

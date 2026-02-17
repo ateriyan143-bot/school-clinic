@@ -322,17 +322,17 @@ export default function AdminAccounts() {
     <div className="flex h-screen bg-gray-50">
       <Sidebar />
 
-      <div className="flex-1 overflow-auto">
-        <div className="p-8 max-w-6xl mx-auto">
-          <div className="flex items-start justify-between gap-4 mb-6">
+      <div className="flex-1 overflow-auto pl-0 lg:pl-0">
+        <div className="p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8 max-w-6xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-4 sm:mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Administrator Accounts</h1>
-              <p className="text-gray-600">Create and manage nurse and admin accounts.</p>
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Administrator Accounts</h1>
+              <p className="text-gray-600 text-sm sm:text-base">Create and manage nurse and admin accounts.</p>
             </div>
             <button
               type="button"
               onClick={() => setShowCreateModal(true)}
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-white hover:bg-primary-700 transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-3 sm:px-4 py-2 sm:py-2.5 text-white hover:bg-primary-700 transition-colors text-sm sm:text-base whitespace-nowrap"
             >
               <Plus size={18} />
               Add New Account

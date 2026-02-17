@@ -126,20 +126,20 @@ export default function AddStudent() {
     <div className="flex h-screen bg-gray-50">
       <Sidebar />
       
-      <div className="flex-1 overflow-auto">
-        <div className="p-8">
+      <div className="flex-1 overflow-auto pl-0 lg:pl-0">
+        <div className="p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8">
           <button
             onClick={() => navigate('/dashboard')}
-            className="flex items-center gap-2 text-primary-700 hover:text-primary-900 mb-6 transition-colors"
+            className="flex items-center gap-2 text-primary-700 hover:text-primary-900 mb-4 sm:mb-6 transition-colors text-sm sm:text-base"
           >
             <ArrowLeft size={20} />
             Back to Dashboard
           </button>
 
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-gray-900">Add New Student</h1>
-              <p className="text-primary-700 mt-2">Fill in the student information below.</p>
+            <div className="text-center mb-6 sm:mb-8">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Add New Student</h1>
+              <p className="text-primary-700 mt-2 text-sm sm:text-base">Fill in the student information below.</p>
             </div>
 
             {formError && (

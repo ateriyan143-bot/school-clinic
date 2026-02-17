@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import { Activity, LayoutDashboard, LogOut, Edit, Save, X, ShieldCheck, Mail, User, MapPin, Calendar, Clock } from 'lucide-react'
+import { Activity, LayoutDashboard, LogOut, Edit, Save, X, ShieldCheck, Mail, User, MapPin, Calendar, Clock, Menu } from 'lucide-react'
 
 const MAX_PROFILE_IMAGE_SIZE = 2 * 1024 * 1024
 
@@ -21,6 +21,7 @@ export default function Sidebar() {
   const [isEditingUser, setIsEditingUser] = useState(false)
   const [savingUser, setSavingUser] = useState(false)
   const [userError, setUserError] = useState('')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [userForm, setUserForm] = useState({
     display_name: '',
     role: '',
@@ -122,7 +123,29 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="w-64 bg-white/95 backdrop-blur-sm border-r border-primary-100 flex flex-col shadow-sm">
+    <>
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="lg:hidden fixed top-4 left-4 z-50 w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center text-white shadow-lg"
+      >
+        <Menu size={20} />
+      </button>
+
+      {/* Mobile Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <div className={`
+        w-64 bg-white/95 backdrop-blur-sm border-r border-primary-100 flex flex-col shadow-sm
+        fixed lg:static inset-y-0 left-0 z-40 transform transition-transform duration-300 ease-in-out
+        ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}>
       {/* Logo */}
       <div className="p-6 border-b border-primary-100 bg-gradient-to-br from-primary-50 to-accent-50">
         <div className="flex items-center gap-3">
@@ -174,7 +197,10 @@ export default function Sidebar() {
             return (
               <li key={item.path}>
                 <button
-                  onClick={() => navigate(item.path)}
+                  onClick={() => {
+                    navigate(item.path)
+                    setIsMobileMenuOpen(false)
+                  }}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                     isActive
                       ? 'bg-primary-100 text-primary-800 shadow-sm'
@@ -202,8 +228,8 @@ export default function Sidebar() {
       </div>
 
       {showUserModal && createPortal(
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl w-full max-w-3xl mx-4 shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl w-full max-w-3xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
             {/* Close button */}
             <div className="flex justify-end p-3 pb-0">
               <button
@@ -219,14 +245,14 @@ export default function Sidebar() {
             </div>
 
             {userError && (
-              <div className="mx-6 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+              <div className="mx-4 sm:mx-6 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
                 {userError}
               </div>
             )}
 
-            <div className="flex flex-row min-h-[400px]">
+            <div className="flex flex-col sm:flex-row min-h-[400px]">
               {/* Left Panel - Avatar & Name */}
-              <div className="flex flex-col items-center justify-center p-8 w-2/5 border-r border-primary-100 shrink-0">
+              <div className="flex flex-col items-center justify-center p-6 sm:p-8 sm:w-2/5 border-b sm:border-b-0 sm:border-r border-primary-100 shrink-0">
                 {userForm.profile_image_url ? (
                   <img
                     src={userForm.profile_image_url}
@@ -247,7 +273,7 @@ export default function Sidebar() {
               </div>
 
               {/* Right Panel - Info Cards */}
-              <div className="flex-1 p-8 space-y-6 overflow-y-auto">
+              <div className="flex-1 p-4 sm:p-8 space-y-6 overflow-y-auto">
                 {isEditingUser ? (
                   /* ---- Edit Mode ---- */
                   <div className="space-y-4">
@@ -407,5 +433,6 @@ export default function Sidebar() {
         document.body
       )}
     </div>
+    </>
   )
 }

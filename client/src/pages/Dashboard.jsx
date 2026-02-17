@@ -312,11 +312,11 @@ export default function Dashboard() {
     <div className="flex h-screen bg-gray-50">
       <Sidebar />
       
-      <div className="flex-1 overflow-auto">
-        <div className="p-8">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Dashboard Overview</h1>
-            <p className="text-primary-700 mt-2">Monitor student health activity with quick actions and live trends.</p>
+      <div className="flex-1 overflow-auto pl-0 lg:pl-0">
+        <div className="p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8">
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard Overview</h1>
+            <p className="text-primary-700 mt-2 text-sm sm:text-base">Monitor student health activity with quick actions and live trends.</p>
           </div>
 
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-5">
