@@ -27,26 +27,26 @@ export default function Login() {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Panel - Branding */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-100 via-white to-accent-100 items-center justify-center p-12">
-        <div className="text-center">
-          <div className="mb-4 flex justify-center">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-100 via-white to-accent-100 items-center justify-center p-8">
+        <div className="text-center max-w-lg -mt-16">
+          <div className="mb-2 flex justify-center">
             <img
               src="/assets/cvsu-banner.jpg"
               alt="Cavite State University College of Nursing"
-              className="max-w-xs mix-blend-multiply"
+              className="w-64 mix-blend-multiply"
             />
           </div>
-          <div className="mb-8 flex justify-center">
+          <div className="mb-4 flex justify-center">
             <img
               src="/assets/lucsuhin.png"
               alt="Lucsuhin Integrated School Logo"
-              className="w-72 h-72 object-contain"
+              className="w-44 h-44 object-contain"
             />
           </div>
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
             School Clinic<br />Management System
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Nurse & Admin Access Portal
           </p>
         </div>

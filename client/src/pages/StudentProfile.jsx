@@ -530,6 +530,7 @@ export default function StudentProfile() {
                     <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wide">Vital Signs</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wide">Assessment</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wide">Intervention</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wide">Medication</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wide">Disposition</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wide">Nurse</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wide">Actions</th>
@@ -538,7 +539,7 @@ export default function StudentProfile() {
                 <tbody className="divide-y divide-primary-100">
                   {visits.length === 0 ? (
                     <tr>
-                      <td colSpan="9" className="px-4 py-8 text-center text-gray-500">
+                      <td colSpan="10" className="px-4 py-8 text-center text-gray-500">
                         No clinic visits recorded yet
                       </td>
                     </tr>
@@ -554,6 +555,7 @@ export default function StudentProfile() {
                         </td>
                         <td className="px-4 py-3 text-sm">{visit.assessment}</td>
                         <td className="px-4 py-3 text-sm">{visit.intervention}</td>
+                        <td className="px-4 py-3 text-sm">{visit.medication_given || 'None'}</td>
                         <td className="px-4 py-3">
                           <span className="inline-block px-3 py-1 bg-primary-600 text-white text-xs rounded-full">
                             {visit.disposition}
